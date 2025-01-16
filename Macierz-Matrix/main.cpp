@@ -14,8 +14,13 @@
   */
 int main() {
     // Testowanie funkcji
-    int size = 4;
-    int table[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+    int size = 5;
+    int* table = new int[size * size];
+
+    // Automatyczne wype³nianie tablicy wartoœciami od 1 do 16
+    for (int i = 0; i < size * size; ++i) {
+        table[i] = i + 1;
+    }
 
     /**
      * @brief Tworzenie macierzy m1 o rozmiarze 4x4.
