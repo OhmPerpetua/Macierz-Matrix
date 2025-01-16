@@ -3,47 +3,106 @@
 
 #include <iostream>
 
+/**
+ * @class Matrix
+ * @brief Klasa reprezentuj¹ca macierz kwadratow¹.
+ */
 class Matrix {
 private:
-    int n;
-    int** data;
+    int n; ///< Rozmiar macierzy.
+    int** data; ///< WskaŸnik do danych macierzy.
 
 public:
-    // Konstruktor domyœlny
+    /**
+     * @brief Konstruktor domyœlny.
+     */
     Matrix();
 
-    // Konstruktor przeci¹¿eniowy alokuj¹cy macierz o wymiarach n na n
+    /**
+     * @brief Konstruktor przeci¹¿eniowy alokuj¹cy macierz o wymiarach n na n.
+     *
+     * @param size Rozmiar macierzy.
+     */
     Matrix(int size);
 
-    // Konstruktor przeci¹¿eniowy przepisuj¹cy dane z tabeli
+    /**
+     * @brief Konstruktor przeci¹¿eniowy przepisuj¹cy dane z tabeli.
+     *
+     * @param size Rozmiar macierzy.
+     * @param t Tablica z danymi do przepisania.
+     */
     Matrix(int size, int* t);
 
-    // Konstruktor kopiuj¹cy
+    /**
+     * @brief Konstruktor kopiuj¹cy.
+     *
+     * @param m Obiekt klasy Matrix do skopiowania.
+     */
     Matrix(const Matrix& m);
 
-    // Destruktor
+    /**
+     * @brief Destruktor.
+     */
     ~Matrix();
 
-    // Alokacja pamiêci
+    /**
+     * @brief Alokacja pamiêci dla macierzy.
+     *
+     * @param size Rozmiar macierzy.
+     * @return Matrix& Referencja do obiektu Matrix.
+     */
     Matrix& alokuj(int size);
 
-    // Metoda do wstawiania wartoœci
+    /**
+     * @brief Metoda do wstawiania wartoœci do macierzy.
+     *
+     * @param x Wiersz.
+     * @param y Kolumna.
+     * @param wartosc Wartoœæ do wstawienia.
+     * @return Matrix& Referencja do obiektu Matrix.
+     */
     Matrix& wstaw(int x, int y, int wartosc);
 
-    // Metoda do pokazywania wartoœci
+    /**
+     * @brief Metoda do pokazywania wartoœci z macierzy.
+     *
+     * @param x Wiersz.
+     * @param y Kolumna.
+     * @return int Wartoœæ z macierzy.
+     */
     int pokaz(int x, int y) const;
 
-    // Metoda do odwracania macierzy (transpozycja)
+    /**
+     * @brief Metoda do odwracania macierzy (transpozycja).
+     *
+     * @return Matrix& Referencja do obiektu Matrix.
+     */
     Matrix& dowroc();
 
-    // Metoda do losowania wartoœci
+    /**
+     * @brief Metoda do losowania wartoœci w macierzy.
+     *
+     * @return Matrix& Referencja do obiektu Matrix.
+     */
     Matrix& losuj();
 
-    // Metoda do losowania okreœlonej liczby elementów
+    /**
+     * @brief Metoda do losowania okreœlonej liczby elementów w macierzy.
+     *
+     * @param x Liczba elementów do wylosowania.
+     * @return Matrix& Referencja do obiektu Matrix.
+     */
     Matrix& losuj(int x);
 
-    // Przyk³adowy operator wypisania
+    /**
+     * @brief Operator wypisania macierzy.
+     *
+     * @param o Strumieñ wyjœciowy.
+     * @param m Obiekt klasy Matrix do wypisania.
+     * @return std::ostream& Referencja do strumienia wyjœciowego.
+     */
     friend std::ostream& operator<<(std::ostream& o, const Matrix& m);
 };
 
 #endif // MATRIX_H
+
